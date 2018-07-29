@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipeService } from '../recipe.service';
+import { Recipe } from '../recipe.model';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-master',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MasterComponent implements OnInit {
 
-  constructor() { }
+  recipes : Recipe[]
+  selectedRecipe$: Observable<Recipe>
+
+  constructor(private service: RecipeService) { } 
 
   ngOnInit() {
+    this.service.getRecipes().subscribe((response)=> {
+      this.recipes = response
+    })
   }
 
 }
