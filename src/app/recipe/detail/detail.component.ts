@@ -9,7 +9,7 @@ import { Recipe } from '../recipe.model';
 export class DetailComponent implements OnInit {
 
   @Input() recipe: Recipe
-  @Output() close : EventEmitter<void> = new EventEmitter()
+  @Output() close: EventEmitter<void> = new EventEmitter()
 
   constructor() { }
 
@@ -23,6 +23,21 @@ export class DetailComponent implements OnInit {
 
   closeDetail() {
     this.close.emit();
+  }
+
+  formatIngredient(ingredient: any) {
+    let formattedIngredient = new String()
+
+    if (typeof ingredient  !== "string") {
+
+      let keys = Object.keys(ingredient)
+      for (let k of keys) {
+        formattedIngredient += ingredient[k] + " "
+      }
+    } else {
+      formattedIngredient = ingredient
+    }
+    return formattedIngredient
   }
 
 }

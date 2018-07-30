@@ -16,7 +16,7 @@
 <section class="section recipe-ingredients">
     <h3>Ingredients</h3>
     <ul class="sub-list">
-      <li *ngFor="let ing of recipe.ingredients">{{ing}}</li>
+      <li *ngFor="let ing of recipe.ingredients">{{formatIngredient(ing)}}</li>
     </ul>
   </section>
   <section class="section recipe-preparation">
