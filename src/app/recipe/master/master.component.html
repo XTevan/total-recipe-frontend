@@ -6,4 +6,4 @@
     </a>
   </li>
 </ul>
-<app-detail *ngIf="selectedRecipe$ | async as selectedRecipe" [recipe]="selectedRecipe" class="detail"></app-detail>
+<app-detail *ngIf="selectedRecipe$ | async as selectedRecipe" [recipe]="selectedRecipe" class="detail" (close)="selectRecipe(null)"></app-detail>

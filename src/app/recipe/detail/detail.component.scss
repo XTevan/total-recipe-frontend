@@ -17,11 +17,16 @@
     >.title {
         padding-top: 15px;
     }
+    >.close {
+        font-size: 30px;
+        font-weight: 100;
+        cursor: pointer;
+    }
 }
 
 
 
-.recipe-info {    
+.recipe-info {        
     >.list >.icon::before {
         content: "";
         display: inline-block;

@@ -1,14 +1,26 @@
 :host {
     display: flex;
     height: 100%;
+    position: relative;
     >.master {
-        width: 33%;        
-        border-right: 1px solid #ddd;
+        width: 100%;        
+        @media screen and (min-width:500px){
+            border-right: 1px solid #ddd;
+            width: 33%;
+        }
     }
     >.detail {
-        flex-grow: 1;
         background-color: #fafafa;
-        flex-basis: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom:0;        
+        @media screen and (min-width:500px) {
+            position: static;
+            flex-grow: 1;
+            flex-basis: 0;
+        }
     }
 }
 .recipe-item {   

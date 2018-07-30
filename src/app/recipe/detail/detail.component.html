@@ -1,5 +1,6 @@
-<header class="recipe-header">
+<header class="recipe-header">  
   <img class="image" [attr.src]="recipe.imagePath" height="100">
+  <span class="close" (click)="closeDetail()" title="Close">&times;</span>
   <h2 class="title">{{recipe.name}}</h2>
   <div class="submitted">
     <span>Submitted at: </span>

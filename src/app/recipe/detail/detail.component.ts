@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -9,6 +9,7 @@ import { Recipe } from '../recipe.model';
 export class DetailComponent implements OnInit {
 
   @Input() recipe: Recipe
+  @Output() close : EventEmitter<void> = new EventEmitter()
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class DetailComponent implements OnInit {
   parseDate(date: string) {
     const parsedDate = new Date(date)
     return parsedDate.toLocaleDateString()
+  }
+
+  closeDetail() {
+    this.close.emit();
   }
 
 }
