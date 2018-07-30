@@ -1,9 +1,9 @@
-<h2>
-  Recipes Master View
-</h2>
-
-<ul>
-  <li *ngFor="let recipe of recipes">
-    {{recipe.name}}
+<ul class="recipe-list master">
+  <li *ngFor="let recipe of recipes" class="recipe">
+    <a [routerLink]="'/'+recipe.id" [routerLinkActive]="'-selected'" class="recipe-item" (click)="onRecipeClick($event,recipe)">
+      <span class="name">{{recipe.name}}</span>
+      <span *ngIf="recipe.vegetarian" class="vegetarian-icon" title="Vegetarian recipe"></span>
+    </a>
   </li>
 </ul>
+<app-detail *ngIf="selectedRecipe$ | async as selectedRecipe" [recipe]="selectedRecipe" class="detail"></app-detail>

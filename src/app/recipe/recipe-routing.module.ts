@@ -5,6 +5,10 @@ import { MasterComponent } from './master/master.component';
 const routes: Routes = [{
   path:"",
   component: MasterComponent
+}
+  ,{
+  path:":id",
+  component: MasterComponent
 }];
 
 @NgModule({

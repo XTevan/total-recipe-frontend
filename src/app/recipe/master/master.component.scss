@@ -1,0 +1,41 @@
+:host {
+    display: flex;
+    height: 100%;
+    >.master {
+        width: 33%;        
+        border-right: 1px solid #ddd;
+    }
+    >.detail {
+        flex-grow: 1;
+        background-color: #fafafa;
+        flex-basis: 0;
+    }
+}
+.recipe-item {   
+    display: block; 
+    padding:15px;
+    border-bottom: 1px solid #ddd;
+    line-height: 24px;
+    position: relative;
+    color: inherit;    
+    cursor: pointer;
+    &.-selected {
+        background-color: #fafafa;
+        font-weight: bold;
+        &::after {            
+            content: "";
+            top: 0;
+            display: block;
+            bottom: 0;
+            width: 1px;
+            right: -1px;
+            position: absolute;
+            background-color: #fafafa;
+        }
+    }
+    >.name {
+        display: inline-block;
+        margin-right: 5px;
+    }
+    
+} 

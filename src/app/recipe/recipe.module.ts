@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RecipeRoutingModule } from './recipe-routing.module';
 import { MasterComponent } from './master/master.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { MasterComponent } from './master/master.component';
     RecipeRoutingModule,
     HttpClientModule
   ],
-  declarations: [MasterComponent]
+  declarations: [MasterComponent, DetailComponent]
 })
 export class RecipeModule { }

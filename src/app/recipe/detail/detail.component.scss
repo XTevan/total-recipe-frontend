@@ -1,0 +1,56 @@
+:host {
+    display: block;
+    padding-left: 15px;
+    >.section {
+        margin-top: 30px;
+    }
+}
+.recipe-header {
+    >.image {
+        float: right;
+    }
+    &::after {
+        clear: both;
+        content: "";
+        display: block;
+    }
+    >.title {
+        padding-top: 15px;
+    }
+}
+
+
+
+.recipe-info {    
+    >.list >.icon::before {
+        content: "";
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: top;
+        width: 24px;
+        height: 24px;
+    }
+    >.list >.icon {
+        line-height: 24px;
+    }
+    >.list >.vegetarian::before {
+        background-image: url(../../../assets/veg.svg);
+        transform: rotate(45deg);
+    }
+    >.list >.portionsize::before {
+        background-image: url(../../../assets/portionsize.svg);
+    }
+}
+
+.sub-list {
+    padding-top: 10px;
+    list-style-type: disc;
+    padding-left: 20px;
+    line-height: 1.5;
+    &.-numbered {
+        list-style-type: decimal;
+    }
+    padding-right: 15px;
+}
+
+

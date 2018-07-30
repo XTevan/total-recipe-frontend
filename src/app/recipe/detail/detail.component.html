@@ -1,0 +1,26 @@
+<header class="recipe-header">
+  <img class="image" [attr.src]="recipe.imagePath" height="100">
+  <h2 class="title">{{recipe.name}}</h2>
+  <div class="submitted">
+    <span>Submitted at: </span>
+    <time [attr.datetime]="recipe.createdAt">{{parseDate(recipe.createdAt)}}</time>
+  </div>
+</header>
+<section class="section recipe-info">
+  <ul class="list">
+    <li *ngIf="recipe.vegetarian" class="vegetarian icon">This is a vegetarian recipe</li>
+    <li class="portionsize icon">Serves {{recipe.portionSize}} {{recipe.portionSize >1 ? "people":"person"}}</li>
+  </ul>
+</section>
+<section class="section recipe-ingredients">
+    <h3>Ingredients</h3>
+    <ul class="sub-list">
+      <li *ngFor="let ing of recipe.ingredients">{{ing}}</li>
+    </ul>
+  </section>
+  <section class="section recipe-preparation">
+      <h3>Preparation</h3>
+      <ol class="sub-list -numbered">
+        <li *ngFor="let step of recipe.instructions">{{step}}</li>
+      </ol>
+    </section>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe.model';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,15 +12,29 @@ import { Observable } from 'rxjs';
 })
 export class MasterComponent implements OnInit {
 
-  recipes : Recipe[]
-  selectedRecipe$: Observable<Recipe>
+  recipes: Recipe[]
+  selectedRecipe$: Subject<Recipe> = new Subject()
 
-  constructor(private service: RecipeService) { } 
+  constructor(private service: RecipeService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.service.getRecipes().subscribe((response)=> {
+    this.service.getRecipes().subscribe((response) => {
       this.recipes = response
+      const id = Number(this.activeRoute.snapshot.params.id)
+      if (id) {
+        this.selectRecipe(this.recipes.find((recipe) => recipe.id === id))
+      }
     })
+
+  }
+
+  selectRecipe(recipe: Recipe) {
+    this.selectedRecipe$.next(recipe)
+  }
+
+  onRecipeClick(event: MouseEvent,recipe : Recipe) {
+    this.selectRecipe(recipe)
+    event.preventDefault()
   }
 
 }
