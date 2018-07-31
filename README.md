@@ -1,4 +1,9 @@
-# TotalRecipeFrontend
+# total-recipe-frontend
+
+## Requirements
+- NodeJS
+- Angular CLI
+- total-recipe-service running(if service is not running at localhost:8080 update `./src/app/recipe/recipe.service.ts` with the proper URL)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 
